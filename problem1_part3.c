@@ -107,7 +107,7 @@
  
              print_pending(i < 2 ? "Child[inherit]" : "Child[other]");
  
-             sleep(30);
+             sleep(10);
              print_pending("Child after sleep");
              exit(0);
          }

@@ -76,14 +76,19 @@
  
              /* compute sum 0..10*pid, sleeping 1s each iteration */
              long sum = 0;
-             long limit = 10 * me;
+             /* Use a smaller limit based on child index, not PID */
+             long limit = 10 * (i + 1);  // 10, 20, 30, or 40 iterations
+             
+             printf("Child %d (pid=%d) will compute sum from 0 to %ld\n", 
+                    i, me, limit);
+                    
              for (long k = 0; k <= limit; k++) {
                  sum += k;
                  printf("  Child %d (pid=%d): k=%2ld, sum=%10ld\n",
                         i, me, k, sum);
                  sleep(1);
              }
-             printf("Child %d (pid=%d) done\n", i, me);
+             printf("Child %d (pid=%d) done, final sum=%ld\n", i, me, sum);
              exit(0);
          }
      }
