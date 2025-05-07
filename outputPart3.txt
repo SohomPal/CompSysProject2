@@ -1,0 +1,49 @@
+Started problem1_part3 (PID=24955)
+    [handler pid=24955] got signal 1
+    [handler pid=24955] got signal 1
+    [handler pid=24955] got signal 17
+    [handler pid=24955] got signal 6
+    [handler pid=24955] got signal 8
+    [handler pid=24955] got signal 8
+    [handler pid=24955] got signal 11
+    [handler pid=24955] got signal 4
+Sending to child 24957
+Sending to child 24958
+    [handler pid=24957] got signal 1
+    [handler pid=24957] got signal 1
+    [handler pid=24957] got signal 17
+    [handler pid=24957] got signal 6
+    [handler pid=24957] got signal 8
+    [handler pid=24957] got signal 8
+    [handler pid=24957] got signal 11
+    [handler pid=24957] got signal 11
+    [handler pid=24957] got signal 4
+>> Parent before fork (pid=24955) pending:
+>> Child[inherit] (pid=24957) pending:
+>> Child after sleep (pid=24957) pending: 2 3 20
+    [handler pid=24955] got signal 17
+    [handler pid=24958] got signal 8
+    [handler pid=24958] got signal 1
+    [handler pid=24958] got signal 1
+    [handler pid=24958] got signal 1
+    [handler pid=24958] got signal 8
+    [handler pid=24958] got signal 11
+Sending to child 24959
+    [handler pid=24958] got signal 11
+    [handler pid=24958] got signal 17
+    [handler pid=24958] got signal 6
+    [handler pid=24958] got signal 4
+>> Parent before fork (pid=24955) pending:
+>> Child[inherit] (pid=24958) pending:
+>> Child after sleep (pid=24958) pending: 2 3 20
+Sending to child 24960
+    [handler pid=24955] got signal 17
+>> Parent before fork (pid=24955) pending:
+>> Child[other] (pid=24960) pending:
+>> Child after sleep (pid=24960) pending: 1 2 3 4 6 8 11 17 20
+>> Parent before fork (pid=24955) pending:
+>> Child[other] (pid=24959) pending:
+>> Child after sleep (pid=24959) pending: 1 2 3 4 6 8 11 17 20
+    [handler pid=24955] got signal 17
+>> Parent before fork (pid=24955) pending:
+>> Parent after children (pid=24955) pending: 2 3 20

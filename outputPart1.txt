@@ -1,0 +1,120 @@
+Started problem1_part1 (PID=24556)
+Sending a few test signals...
+Child 0 (pid=24558) starting
+Child 0 (pid=24558) will compute sum from 0 to 10
+  Child 0 (pid=24558): k= 0, sum=         0
+  Child 0 (pid=24558): k= 1, sum=         1
+  Child 0 (pid=24558): k= 2, sum=         3
+  Child 0 (pid=24558): k= 3, sum=         6
+  Child 0 (pid=24558): k= 4, sum=        10
+  Child 0 (pid=24558): k= 5, sum=        15
+  Child 0 (pid=24558): k= 6, sum=        21
+  Child 0 (pid=24558): k= 7, sum=        28
+  Child 0 (pid=24558): k= 8, sum=        36
+  Child 0 (pid=24558): k= 9, sum=        45
+  Child 0 (pid=24558): k=10, sum=        55
+Child 0 (pid=24558) done, final sum=55
+Child 1 (pid=24559) starting
+Child 1 (pid=24559) will compute sum from 0 to 20
+  Child 1 (pid=24559): k= 0, sum=         0
+  Child 1 (pid=24559): k= 1, sum=         1
+  Child 1 (pid=24559): k= 2, sum=         3
+  Child 1 (pid=24559): k= 3, sum=         6
+  Child 1 (pid=24559): k= 4, sum=        10
+  Child 1 (pid=24559): k= 5, sum=        15
+  Child 1 (pid=24559): k= 6, sum=        21
+  Child 1 (pid=24559): k= 7, sum=        28
+  Child 1 (pid=24559): k= 8, sum=        36
+  Child 1 (pid=24559): k= 9, sum=        45
+  Child 1 (pid=24559): k=10, sum=        55
+  Child 1 (pid=24559): k=11, sum=        66
+  Child 1 (pid=24559): k=12, sum=        78
+  Child 1 (pid=24559): k=13, sum=        91
+  Child 1 (pid=24559): k=14, sum=       105
+  Child 1 (pid=24559): k=15, sum=       120
+  Child 1 (pid=24559): k=16, sum=       136
+  Child 1 (pid=24559): k=17, sum=       153
+  Child 1 (pid=24559): k=18, sum=       171
+  Child 1 (pid=24559): k=19, sum=       190
+  Child 1 (pid=24559): k=20, sum=       210
+Child 1 (pid=24559) done, final sum=210
+Child 2 (pid=24560) starting
+Child 2 (pid=24560) will compute sum from 0 to 30
+  Child 2 (pid=24560): k= 0, sum=         0
+  Child 2 (pid=24560): k= 1, sum=         1
+  Child 2 (pid=24560): k= 2, sum=         3
+  Child 2 (pid=24560): k= 3, sum=         6
+  Child 2 (pid=24560): k= 4, sum=        10
+  Child 2 (pid=24560): k= 5, sum=        15
+  Child 2 (pid=24560): k= 6, sum=        21
+  Child 2 (pid=24560): k= 7, sum=        28
+  Child 2 (pid=24560): k= 8, sum=        36
+  Child 2 (pid=24560): k= 9, sum=        45
+  Child 2 (pid=24560): k=10, sum=        55
+  Child 2 (pid=24560): k=11, sum=        66
+  Child 2 (pid=24560): k=12, sum=        78
+  Child 2 (pid=24560): k=13, sum=        91
+  Child 2 (pid=24560): k=14, sum=       105
+  Child 2 (pid=24560): k=15, sum=       120
+  Child 2 (pid=24560): k=16, sum=       136
+  Child 2 (pid=24560): k=17, sum=       153
+  Child 2 (pid=24560): k=18, sum=       171
+  Child 2 (pid=24560): k=19, sum=       190
+  Child 2 (pid=24560): k=20, sum=       210
+  Child 2 (pid=24560): k=21, sum=       231
+  Child 2 (pid=24560): k=22, sum=       253
+  Child 2 (pid=24560): k=23, sum=       276
+  Child 2 (pid=24560): k=24, sum=       300
+  Child 2 (pid=24560): k=25, sum=       325
+  Child 2 (pid=24560): k=26, sum=       351
+  Child 2 (pid=24560): k=27, sum=       378
+  Child 2 (pid=24560): k=28, sum=       406
+  Child 2 (pid=24560): k=29, sum=       435
+  Child 2 (pid=24560): k=30, sum=       465
+Child 2 (pid=24560) done, final sum=465
+Child 3 (pid=24561) starting
+Child 3 (pid=24561) will compute sum from 0 to 40
+  Child 3 (pid=24561): k= 0, sum=         0
+  Child 3 (pid=24561): k= 1, sum=         1
+  Child 3 (pid=24561): k= 2, sum=         3
+  Child 3 (pid=24561): k= 3, sum=         6
+  Child 3 (pid=24561): k= 4, sum=        10
+  Child 3 (pid=24561): k= 5, sum=        15
+  Child 3 (pid=24561): k= 6, sum=        21
+  Child 3 (pid=24561): k= 7, sum=        28
+  Child 3 (pid=24561): k= 8, sum=        36
+  Child 3 (pid=24561): k= 9, sum=        45
+  Child 3 (pid=24561): k=10, sum=        55
+  Child 3 (pid=24561): k=11, sum=        66
+  Child 3 (pid=24561): k=12, sum=        78
+  Child 3 (pid=24561): k=13, sum=        91
+  Child 3 (pid=24561): k=14, sum=       105
+  Child 3 (pid=24561): k=15, sum=       120
+  Child 3 (pid=24561): k=16, sum=       136
+  Child 3 (pid=24561): k=17, sum=       153
+  Child 3 (pid=24561): k=18, sum=       171
+  Child 3 (pid=24561): k=19, sum=       190
+  Child 3 (pid=24561): k=20, sum=       210
+  Child 3 (pid=24561): k=21, sum=       231
+  Child 3 (pid=24561): k=22, sum=       253
+  Child 3 (pid=24561): k=23, sum=       276
+  Child 3 (pid=24561): k=24, sum=       300
+  Child 3 (pid=24561): k=25, sum=       325
+  Child 3 (pid=24561): k=26, sum=       351
+  Child 3 (pid=24561): k=27, sum=       378
+  Child 3 (pid=24561): k=28, sum=       406
+  Child 3 (pid=24561): k=29, sum=       435
+  Child 3 (pid=24561): k=30, sum=       465
+  Child 3 (pid=24561): k=31, sum=       496
+  Child 3 (pid=24561): k=32, sum=       528
+  Child 3 (pid=24561): k=33, sum=       561
+  Child 3 (pid=24561): k=34, sum=       595
+  Child 3 (pid=24561): k=35, sum=       630
+  Child 3 (pid=24561): k=36, sum=       666
+  Child 3 (pid=24561): k=37, sum=       703
+  Child 3 (pid=24561): k=38, sum=       741
+  Child 3 (pid=24561): k=39, sum=       780
+  Child 3 (pid=24561): k=40, sum=       820
+Child 3 (pid=24561) done, final sum=820
+Parent: children done; restored defaults, now sleeping 10s
+Parent exiting

@@ -1,0 +1,305 @@
+Started problem1_part2 (PID=24775)
+Sending signals from terminal to parent...
+Sending signal INT to parent
+Signal received
+[processed] Process 24775 received signal 2 (Interrupt) from PID 24773 (count: 1)
+Sending signal ABRT to parent
+Signal received
+[processed] Process 24775 received signal 6 (Aborted) from PID 24773 (count: 1)
+PID 24779 sending signal 2 to PID 24775 (1 of 1)
+Signal received
+[processed] Process 24775 received signal 2 (Interrupt) from PID 24779 (count: 2)
+PID 24779 sending signal 6 to PID 24775 (1 of 1)
+Signal received
+[processed] Process 24775 received signal 6 (Aborted) from PID 24779 (count: 2)
+Sending signal ILL to parent
+Signal received
+[processed] Process 24775 received signal 4 (Illegal instruction) from PID 24773 (count: 1)
+PID 24779 sending signal 4 to PID 24775 (1 of 1)
+Signal received
+[processed] Process 24775 received signal 4 (Illegal instruction) from PID 24779 (count: 2)
+PID 24779 sending signal 17 to PID 24775 (1 of 1)
+Signal received
+[processed] Process 24775 received signal 17 (Child exited) from PID 24779 (count: 1)
+Sending signal CHLD to parent
+Signal received
+[processed] Process 24775 received signal 17 (Child exited) from PID 24773 (count: 2)
+PID 24779 sending signal 11 to PID 24775 (1 of 1)
+Signal received
+[processed] Process 24775 received signal 11 (Segmentation fault) from PID 24779 (count: 1)
+PID 24779 sending signal 8 to PID 24775 (1 of 1)
+Signal received
+[processed] Process 24775 received signal 8 (Floating point exception) from PID 24779 (count: 1)
+Sending signal SEGV to parent
+Signal received
+[processed] Process 24775 received signal 11 (Segmentation fault) from PID 24773 (count: 2)
+Parent (PID=24775) started - spawning children
+Send signals to parent via terminal: kill -SIGNAL 24775
+Child 0 (pid=24777) starting
+Child 0 (pid=24777) will compute sum from 0 to 10
+  Child 0 (pid=24777): k= 0, sum=         0
+  Child 0 (pid=24777): k= 1, sum=         1
+  Child 0 (pid=24777): k= 2, sum=         3
+  Child 0 (pid=24777): k= 3, sum=         6
+  Child 0 (pid=24777): k= 4, sum=        10
+  Child 0 (pid=24777): k= 5, sum=        15
+  Child 0 (pid=24777): k= 6, sum=        21
+  Child 0 (pid=24777): k= 7, sum=        28
+  Child 0 (pid=24777): k= 8, sum=        36
+  Child 0 (pid=24777): k= 9, sum=        45
+  Child 0 (pid=24777): k=10, sum=        55
+Child 0 (pid=24777) done, final sum=55
+Child 0 (pid=24777) done
+
+--- Signal Reception Statistics ---
+--------------------------------
+
+Signal received
+[processed] Process 24775 received signal 17 (Child exited) from PID 24777 (count: 3)
+PID 24779 sending signal 1 to PID 24775 (1 of 1)
+Signal received
+[processed] Process 24775 received signal 1 (Hangup) from PID 24779 (count: 1)
+PID 24779 sending signal 20 to PID 24775 (1 of 1)
+Signal received
+[processed] Process 24775 received signal 20 (Stopped) from PID 24779 (count: 1)
+Sending signal FPE to parent
+Signal received
+[processed] Process 24775 received signal 8 (Floating point exception) from PID 24773 (count: 2)
+PID 24779 sending signal 2 to PID 24775 (1 of 3)
+Signal received
+[processed] Process 24775 received signal 2 (Interrupt) from PID 24779 (count: 3)
+PID 24779 sending signal 2 to PID 24775 (2 of 3)
+Signal received
+[processed] Process 24775 received signal 2 (Interrupt) from PID 24779 (count: 4)
+PID 24779 sending signal 2 to PID 24775 (3 of 3)
+Signal received
+[processed] Process 24775 received signal 2 (Interrupt) from PID 24779 (count: 5)
+PID 24779 sending signal 6 to PID 24775 (1 of 3)
+Signal received
+[processed] Process 24775 received signal 6 (Aborted) from PID 24779 (count: 3)
+PID 24779 sending signal 6 to PID 24775 (2 of 3)
+Signal received
+[processed] Process 24775 received signal 6 (Aborted) from PID 24779 (count: 4)
+PID 24779 sending signal 6 to PID 24775 (3 of 3)
+Signal received
+[processed] Process 24775 received signal 6 (Aborted) from PID 24779 (count: 5)
+Sending signal HUP to parent
+Signal received
+[processed] Process 24775 received signal 1 (Hangup) from PID 24773 (count: 2)
+PID 24779 sending signal 4 to PID 24775 (1 of 3)
+Signal received
+[processed] Process 24775 received signal 4 (Illegal instruction) from PID 24779 (count: 3)
+PID 24779 sending signal 4 to PID 24775 (2 of 3)
+Signal received
+[processed] Process 24775 received signal 4 (Illegal instruction) from PID 24779 (count: 4)
+PID 24779 sending signal 4 to PID 24775 (3 of 3)
+Signal received
+[processed] Process 24775 received signal 4 (Illegal instruction) from PID 24779 (count: 5)
+PID 24779 sending signal 17 to PID 24775 (1 of 3)
+Signal received
+[processed] Process 24775 received signal 17 (Child exited) from PID 24779 (count: 4)
+PID 24779 sending signal 17 to PID 24775 (2 of 3)
+Signal received
+[processed] Process 24775 received signal 17 (Child exited) from PID 24779 (count: 5)
+PID 24779 sending signal 17 to PID 24775 (3 of 3)
+Signal received
+[processed] Process 24775 received signal 17 (Child exited) from PID 24779 (count: 6)
+Sending signal TSTP to parent
+Signal received
+[processed] Process 24775 received signal 20 (Stopped) from PID 24773 (count: 2)
+PID 24779 sending signal 11 to PID 24775 (1 of 3)
+Signal received
+[processed] Process 24775 received signal 11 (Segmentation fault) from PID 24779 (count: 3)
+PID 24779 sending signal 11 to PID 24775 (2 of 3)
+Signal received
+[processed] Process 24775 received signal 11 (Segmentation fault) from PID 24779 (count: 4)
+PID 24779 sending signal 11 to PID 24775 (3 of 3)
+Signal received
+[processed] Process 24775 received signal 11 (Segmentation fault) from PID 24779 (count: 5)
+Now sending each signal multiple times...
+Sending signal INT to parent (3 times)
+Signal received
+[processed] Process 24775 received signal 2 (Interrupt) from PID 24773 (count: 6)
+PID 24779 sending signal 8 to PID 24775 (1 of 3)
+Signal received
+[processed] Process 24775 received signal 8 (Floating point exception) from PID 24779 (count: 3)
+Signal received
+[processed] Process 24775 received signal 2 (Interrupt) from PID 24773 (count: 7)
+PID 24779 sending signal 8 to PID 24775 (2 of 3)
+Signal received
+[processed] Process 24775 received signal 8 (Floating point exception) from PID 24779 (count: 4)
+PID 24779 sending signal 8 to PID 24775 (3 of 3)
+Signal received
+[processed] Process 24775 received signal 8 (Floating point exception) from PID 24779 (count: 5)
+Signal received
+[processed] Process 24775 received signal 2 (Interrupt) from PID 24773 (count: 8)
+PID 24780 sending signal 2 to PID 24775 (1 of 1)
+Signal received
+[processed] Process 24775 received signal 2 (Interrupt) from PID 24780 (count: 9)
+PID 24779 sending signal 1 to PID 24775 (1 of 3)
+Signal received
+[processed] Process 24775 received signal 1 (Hangup) from PID 24779 (count: 3)
+PID 24779 sending signal 1 to PID 24775 (2 of 3)
+Signal received
+[processed] Process 24775 received signal 1 (Hangup) from PID 24779 (count: 4)
+PID 24779 sending signal 1 to PID 24775 (3 of 3)
+Signal received
+[processed] Process 24775 received signal 1 (Hangup) from PID 24779 (count: 5)
+Sending signal ABRT to parent (3 times)
+Signal received
+[processed] Process 24775 received signal 6 (Aborted) from PID 24773 (count: 6)
+Signal received
+[processed] Process 24775 received signal 6 (Aborted) from PID 24773 (count: 7)
+Parent (PID=24775) started - spawning children
+Send signals to parent via terminal: kill -SIGNAL 24775
+Child 1 (pid=24778) starting
+Child 1 (pid=24778) will compute sum from 0 to 20
+  Child 1 (pid=24778): k= 0, sum=         0
+  Child 1 (pid=24778): k= 1, sum=         1
+  Child 1 (pid=24778): k= 2, sum=         3
+  Child 1 (pid=24778): k= 3, sum=         6
+  Child 1 (pid=24778): k= 4, sum=        10
+  Child 1 (pid=24778): k= 5, sum=        15
+  Child 1 (pid=24778): k= 6, sum=        21
+  Child 1 (pid=24778): k= 7, sum=        28
+  Child 1 (pid=24778): k= 8, sum=        36
+  Child 1 (pid=24778): k= 9, sum=        45
+  Child 1 (pid=24778): k=10, sum=        55
+  Child 1 (pid=24778): k=11, sum=        66
+  Child 1 (pid=24778): k=12, sum=        78
+  Child 1 (pid=24778): k=13, sum=        91
+  Child 1 (pid=24778): k=14, sum=       105
+  Child 1 (pid=24778): k=15, sum=       120
+  Child 1 (pid=24778): k=16, sum=       136
+  Child 1 (pid=24778): k=17, sum=       153
+  Child 1 (pid=24778): k=18, sum=       171
+  Child 1 (pid=24778): k=19, sum=       190
+  Child 1 (pid=24778): k=20, sum=       210
+Child 1 (pid=24778) done, final sum=210
+Child 1 (pid=24778) done
+
+--- Signal Reception Statistics ---
+--------------------------------
+
+Signal received
+[processed] Process 24775 received signal 17 (Child exited) from PID 24778 (count: 7)
+Signal received
+[processed] Process 24775 received signal 6 (Aborted) from PID 24773 (count: 8)
+PID 24780 sending signal 4 to PID 24775 (1 of 1)
+Signal received
+[processed] Process 24775 received signal 4 (Illegal instruction) from PID 24780 (count: 6)
+PID 24779 sending signal 20 to PID 24775 (1 of 3)
+Signal received
+[processed] Process 24775 received signal 20 (Stopped) from PID 24779 (count: 3)
+PID 24779 sending signal 20 to PID 24775 (2 of 3)
+Signal received
+[processed] Process 24775 received signal 20 (Stopped) from PID 24779 (count: 4)
+PID 24779 sending signal 20 to PID 24775 (3 of 3)
+Signal received
+[processed] Process 24775 received signal 20 (Stopped) from PID 24779 (count: 5)
+PID 24780 sending signal 1 to PID 24775 (1 of 1)
+Signal received
+[processed] Process 24775 received signal 1 (Hangup) from PID 24780 (count: 6)
+Sending signal ILL to parent (3 times)
+Signal received
+[processed] Process 24775 received signal 4 (Illegal instruction) from PID 24773 (count: 7)
+Signal received
+[processed] Process 24775 received signal 4 (Illegal instruction) from PID 24773 (count: 8)
+Parent (PID=24775) started - spawning children
+Send signals to parent via terminal: kill -SIGNAL 24775
+Child 2 (pid=24779) starting
+Child 2 will send signals to Parent (PID=24775)
+
+Now sending each signal multiple times...
+Child 2 (pid=24779) done
+
+--- Signal Reception Statistics ---
+--------------------------------
+
+Signal received
+[processed] Process 24775 received signal 17 (Child exited) from PID 24779 (count: 8)
+Signal received
+[processed] Process 24775 received signal 4 (Illegal instruction) from PID 24773 (count: 9)
+PID 24780 sending signal 20 to PID 24775 (1 of 1)
+Signal received
+[processed] Process 24775 received signal 20 (Stopped) from PID 24780 (count: 6)
+Sending signal CHLD to parent (3 times)
+Signal received
+[processed] Process 24775 received signal 17 (Child exited) from PID 24773 (count: 9)
+Signal received
+[processed] Process 24775 received signal 17 (Child exited) from PID 24773 (count: 10)
+PID 24780 sending signal 2 to PID 24775 (1 of 3)
+Signal received
+[processed] Process 24775 received signal 2 (Interrupt) from PID 24780 (count: 10)
+Signal received
+[processed] Process 24775 received signal 17 (Child exited) from PID 24773 (count: 11)
+PID 24780 sending signal 2 to PID 24775 (2 of 3)
+Signal received
+[processed] Process 24775 received signal 2 (Interrupt) from PID 24780 (count: 11)
+PID 24780 sending signal 2 to PID 24775 (3 of 3)
+Signal received
+[processed] Process 24775 received signal 2 (Interrupt) from PID 24780 (count: 12)
+PID 24780 sending signal 4 to PID 24775 (1 of 3)
+Signal received
+[processed] Process 24775 received signal 4 (Illegal instruction) from PID 24780 (count: 10)
+PID 24780 sending signal 4 to PID 24775 (2 of 3)
+Signal received
+[processed] Process 24775 received signal 4 (Illegal instruction) from PID 24780 (count: 11)
+Sending signal SEGV to parent (3 times)
+Signal received
+[processed] Process 24775 received signal 11 (Segmentation fault) from PID 24773 (count: 6)
+PID 24780 sending signal 4 to PID 24775 (3 of 3)
+Signal received
+[processed] Process 24775 received signal 4 (Illegal instruction) from PID 24780 (count: 12)
+Signal received
+[processed] Process 24775 received signal 11 (Segmentation fault) from PID 24773 (count: 7)
+Signal received
+[processed] Process 24775 received signal 11 (Segmentation fault) from PID 24773 (count: 8)
+PID 24780 sending signal 1 to PID 24775 (1 of 3)
+Signal received
+[processed] Process 24775 received signal 1 (Hangup) from PID 24780 (count: 7)
+PID 24780 sending signal 1 to PID 24775 (2 of 3)
+Signal received
+[processed] Process 24775 received signal 1 (Hangup) from PID 24780 (count: 8)
+PID 24780 sending signal 1 to PID 24775 (3 of 3)
+Signal received
+[processed] Process 24775 received signal 1 (Hangup) from PID 24780 (count: 9)
+Sending signal FPE to parent (3 times)
+Signal received
+[processed] Process 24775 received signal 8 (Floating point exception) from PID 24773 (count: 6)
+Signal received
+[processed] Process 24775 received signal 8 (Floating point exception) from PID 24773 (count: 7)
+Signal received
+[processed] Process 24775 received signal 8 (Floating point exception) from PID 24773 (count: 8)
+PID 24780 sending signal 20 to PID 24775 (1 of 3)
+Signal received
+[processed] Process 24775 received signal 20 (Stopped) from PID 24780 (count: 7)
+PID 24780 sending signal 20 to PID 24775 (2 of 3)
+Signal received
+[processed] Process 24775 received signal 20 (Stopped) from PID 24780 (count: 8)
+PID 24780 sending signal 20 to PID 24775 (3 of 3)
+Signal received
+[processed] Process 24775 received signal 20 (Stopped) from PID 24780 (count: 9)
+Sending signal HUP to parent (3 times)
+Signal received
+[processed] Process 24775 received signal 1 (Hangup) from PID 24773 (count: 10)
+Parent (PID=24775) started - spawning children
+Send signals to parent via terminal: kill -SIGNAL 24775
+Child 3 (pid=24780) starting
+Child 3 will send signals to Parent (PID=24775)
+Child 3 sending different subset of signals
+
+Now sending each signal multiple times to parent...
+Child 3 (pid=24780) done
+
+--- Signal Reception Statistics ---
+--------------------------------
+
+Signal received
+[processed] Process 24775 received signal 17 (Child exited) from PID 24780 (count: 12)
+./signals_test.sh: line 54: 24775 Hangup                  ./problem1_part2
+./signals_test.sh: line 55: kill: (24775) - No such process
+Sending signal TSTP to parent (3 times)
+./signals_test.sh: line 55: kill: (24775) - No such process
+./signals_test.sh: line 55: kill: (24775) - No such process
+./signals_test.sh: line 55: kill: (24775) - No such process
