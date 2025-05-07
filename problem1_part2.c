@@ -18,32 +18,59 @@
 
 // Structure to track signal reception
 typedef struct {
-    int count;
-    time_t last_time;
+    volatile sig_atomic_t count;
+    volatile sig_atomic_t pending; // Flag to indicate a signal needs processing
+    volatile sig_atomic_t last_sender_pid; // To record the sender PID safely
+    time_t last_time; // Will be updated outside the handler
 } signal_record_t;
 
 // Global array to record signals received
 signal_record_t signal_records[NSIG];
 
-void record_signal(int sig) {
-    signal_records[sig].count++;
-    signal_records[sig].last_time = time(NULL);
+// Flag to indicate new signals have arrived that need processing
+volatile sig_atomic_t signals_pending = 0;
+
+// Minimal, async-signal-safe handler that just records the signal
+void handler(int sig, siginfo_t *si, void *ctx) {
+    if (sig > 0 && sig < NSIG) {
+        // Minimally update atomic counters - safe in handler
+        signal_records[sig].count++;
+        signal_records[sig].pending = 1;
+        signal_records[sig].last_sender_pid = si->si_pid;
+        signals_pending = 1;
+        
+        // Use only async-signal-safe operation: write() with a fixed string
+        const char msg[] = "Signal received\n";
+        write(STDOUT_FILENO, msg, sizeof(msg) - 1);
+    }
 }
 
-void handler(int sig, siginfo_t *si, void *ctx) {
-    pid_t sender_pid = si->si_pid;
-    pid_t my_pid = getpid();
+// Function to process pending signals - called from regular code, not from handler
+void process_pending_signals() {
+    if (!signals_pending) return;
     
-    record_signal(sig);
-    
-    // Log which process received the signal and from whom
     char buf[256];
-    snprintf(buf, sizeof(buf), 
-             "[handler] Process %d received signal %d (%s) from PID %d (count: %d)\n",
-             my_pid, sig, strsignal(sig), sender_pid, signal_records[sig].count);
+    for (int sig = 1; sig < NSIG; sig++) {
+        if (signal_records[sig].pending) {
+            // Update timestamp - safe to do outside of handler
+            signal_records[sig].last_time = time(NULL);
+            
+            // Now safe to use non-async functions like snprintf and strsignal
+            snprintf(buf, sizeof(buf),
+                     "[processed] Process %d received signal %d (%s) from PID %d (count: %d)\n",
+                     getpid(), sig, strsignal(sig), 
+                     signal_records[sig].last_sender_pid, 
+                     signal_records[sig].count);
+            
+            write(STDOUT_FILENO, buf, strlen(buf));
+            
+            // Clear the pending flag
+            signal_records[sig].pending = 0;
+        }
+    }
     
-    // Use write instead of printf to ensure async-signal safety
-    write(STDOUT_FILENO, buf, strlen(buf));
+    // Reset the global flag
+    signals_pending = 0;
 }
 
 void setup_handler(int sig, const sigset_t *mask_during_handler) {
@@ -147,6 +174,9 @@ int main(void) {
                       i, me, limit);
                 
                 for (long k = 0; k <= limit; k++) {
+                    // Process any signals received since last iteration
+                    process_pending_signals();
+                    
                     sum += k;
                     printf("  Child %d (pid=%d): k=%2ld, sum=%10ld\n", i, me, k, sum);
                     sleep(1);
@@ -161,6 +191,9 @@ int main(void) {
                 
                 // Send each signal once
                 for (j = 0; j < 8; j++) {
+                    // Process any signals between sending
+                    process_pending_signals();
+                    
                     send_signal(me, parent_pid, all_sigs[j], 1);
                     sleep(1);  // Wait between different signals
                 }
@@ -168,6 +201,9 @@ int main(void) {
                 // Send each signal multiple times
                 printf("\nNow sending each signal multiple times...\n");
                 for (j = 0; j < 8; j++) {
+                    // Process any signals between sending
+                    process_pending_signals();
+                    
                     send_signal(me, parent_pid, all_sigs[j], 3);
                     sleep(1);  // Wait between different signals
                 }
@@ -184,6 +220,9 @@ int main(void) {
                 // Send each signal once
                 printf("Child 3 sending different subset of signals\n");
                 for (j = 0; j < 4; j++) {
+                    // Process any signals between sending
+                    process_pending_signals();
+                    
                     send_signal(me, parent_pid, child3_sigs[j], 1);
                     sleep(1);  // Wait between different signals
                 }
@@ -191,10 +230,16 @@ int main(void) {
                 // Send each signal multiple times
                 printf("\nNow sending each signal multiple times to parent...\n");
                 for (j = 0; j < 4; j++) {
+                    // Process any signals between sending
+                    process_pending_signals();
+                    
                     send_signal(me, parent_pid, child3_sigs[j], 3);
                     sleep(1);  // Wait between different signals
                 }
             }
+            
+            // Final processing of any pending signals
+            process_pending_signals();
             
             printf("Child %d (pid=%d) done\n", i, me);
             print_signal_stats();
@@ -218,10 +263,26 @@ int main(void) {
     
     printf("Parent waiting for children (send signals with: kill -SIGNAL %d)\n", parent_pid);
     
-    /* parent waits for children to finish */
+    /* parent waits for children to finish, periodically processing pending signals */
     for (i = 0; i < 4; i++) {
-        waitpid(pids[i], NULL, 0);
-        printf("Parent: Child %d (PID=%d) has exited\n", i, pids[i]);
+        int status;
+        pid_t wpid;
+        
+        // Wait in short bursts to process signals
+        while ((wpid = waitpid(pids[i], &status, WNOHANG)) == 0) {
+            // Process any signals that arrived
+            process_pending_signals();
+            usleep(100000); // Sleep 0.1 sec before checking again
+        }
+        
+        if (wpid < 0) {
+            perror("waitpid");
+        } else {
+            printf("Parent: Child %d (PID=%d) has exited\n", i, pids[i]);
+        }
+        
+        // Process signals again after child exit
+        process_pending_signals();
     }
 
     /* restore default handlers and sleep to catch any signals */
@@ -230,7 +291,13 @@ int main(void) {
 
     printf("Parent: children done; restored defaults, now sleeping 10s\n");
     printf("Use terminal to send signals: kill -SIGNAL %d\n", parent_pid);
-    sleep(10);
+    
+    // Sleep in short bursts to process signals
+    for (i = 0; i < 100; i++) {
+        process_pending_signals();
+        usleep(100000); // Sleep 0.1 seconds
+    }
+    
     printf("Parent exiting\n");
     
     print_signal_stats();
